@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.npm-cache/
+.npmrc
+.DS_Store
+AGENTS.md
+qa/
+qa-*.png
+design-comparison.png
+implementation-desktop.png
+
