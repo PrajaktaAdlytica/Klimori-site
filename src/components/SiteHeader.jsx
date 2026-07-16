@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Eye, Gauge, Layers3, Menu, X } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -10,12 +10,19 @@ const products = [
 
 function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const productsRef = useRef(null);
   const { pathname } = useLocation();
   const productRouteActive = products.some((product) => product.to === pathname);
 
   function closeMenu() {
     setMenuOpen(false);
+    if (productsRef.current) productsRef.current.open = false;
   }
+
+  useEffect(() => {
+    setMenuOpen(false);
+    if (productsRef.current) productsRef.current.open = false;
+  }, [pathname]);
 
   return (
     <header className="site-header">
@@ -24,7 +31,7 @@ function SiteHeader() {
       </NavLink>
       <nav className={menuOpen ? "main-nav main-nav--open" : "main-nav"} aria-label="Main navigation">
         <NavLink to="/system" onClick={closeMenu}>System</NavLink>
-        <details className={productRouteActive ? "nav-products nav-products--active" : "nav-products"}>
+        <details ref={productsRef} className={productRouteActive ? "nav-products nav-products--active" : "nav-products"}>
           <summary>Products <ChevronDown size={14} aria-hidden="true" /></summary>
           <div className="nav-products__menu">
             {products.map(({ to, name, description, icon: Icon }) => (

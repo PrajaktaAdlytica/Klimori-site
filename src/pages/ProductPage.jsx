@@ -92,6 +92,14 @@ function ProductPage({ productKey }) {
       gsap.fromTo(".product-hero__copy > *", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.11, ease: "power3.out" });
       gsap.fromTo(".product-hero__media", { autoAlpha: 0, x: 34 }, { autoAlpha: 1, x: 0, duration: 1, ease: "power3.out" });
       gsap.to(".product-hero__media img", { yPercent: 4, ease: "none", scrollTrigger: { trigger: ".product-hero", start: "top top", end: "bottom top", scrub: 0.65 } });
+      gsap.utils.toArray(".product-motion-section").forEach((section) => {
+        gsap.to(section, {
+          "--section-progress": 1,
+          duration: 1.05,
+          ease: "power3.out",
+          scrollTrigger: { trigger: section, start: "top 98%", once: true },
+        });
+      });
       gsap.fromTo(".product-metrics > div", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.72, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: ".product-metrics", start: "top 82%", once: true } });
       gsap.fromTo(".product-story__intro", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: ".product-story", start: "top 82%", once: true } });
       gsap.fromTo(".product-chapter", { autoAlpha: 0, x: 28 }, { autoAlpha: 1, x: 0, duration: 0.8, stagger: 0.16, ease: "power3.out", scrollTrigger: { trigger: ".product-story", start: "top 72%", once: true } });
@@ -124,40 +132,40 @@ function ProductPage({ productKey }) {
         </figure>
       </section>
 
-      <section className="product-metrics" aria-label={`${product.eyebrow} example metrics`}>
+      <section className="product-metrics product-motion-section" aria-label={`${product.eyebrow} example metrics`}>
         {product.metrics.map(([value, label], index) => <div key={label}><span>0{index + 1}</span><strong>{value}</strong><p>{label}</p></div>)}
       </section>
 
-      <section className="product-story" id="how-it-works" aria-labelledby={`${product.slug}-story-heading`}>
+      <section className="product-story product-motion-section" id="how-it-works" aria-labelledby={`${product.slug}-story-heading`}>
         <div className="product-story__intro product-reveal"><RouteLabel>How it works</RouteLabel><h2 id={`${product.slug}-story-heading`}>From operating signal to reviewable action.</h2><p>Each step preserves the relationship between what the building did, why it may have happened, and what the team decided next.</p></div>
         <div className="product-chapters">
           {product.chapters.map(([number, title, copy]) => <article className="product-chapter" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
       </section>
 
-      <section className="product-finding product-reveal" aria-labelledby={`${product.slug}-finding-heading`}>
+      <section className="product-finding product-reveal product-motion-section" aria-labelledby={`${product.slug}-finding-heading`}>
         <div><RouteLabel>{product.findingMeta}</RouteLabel><h2 id={`${product.slug}-finding-heading`}>{product.finding}</h2></div>
         <aside><Gauge size={24} aria-hidden="true" /><span>Operating outcome</span><p>{product.outcome}</p><NavLink className="text-link" to="/request-demo">Review this scenario <ArrowRight size={15} /></NavLink></aside>
       </section>
 
-      <section className="product-use-cases product-reveal" aria-labelledby={`${product.slug}-use-heading`}>
+      <section className="product-use-cases product-reveal product-motion-section" aria-labelledby={`${product.slug}-use-heading`}>
         <div><RouteLabel>Where it fits</RouteLabel><h2 id={`${product.slug}-use-heading`}>Built for repeated operating work.</h2></div>
         <div>{product.useCases.map((item, index) => <span key={item}><i>0{index + 1}</i>{item}</span>)}</div>
       </section>
 
-      <section className="product-connections" aria-labelledby={`${product.slug}-connections-heading`}>
+      <section className="product-connections product-motion-section" aria-labelledby={`${product.slug}-connections-heading`}>
         <div className="product-connections__intro product-reveal"><RouteLabel>Connected context</RouteLabel><h2 id={`${product.slug}-connections-heading`}>Work with the systems already shaping the day.</h2><p>Connection scope is confirmed during the technical review for each site and portfolio.</p></div>
         <div className="product-connections__list">
           {sharedConnections.map(({ icon: Icon, name, detail }, index) => <div className="product-connection" key={name}><span>0{index + 1}</span><Icon size={19} aria-hidden="true" /><strong>{name}</strong><p>{detail}</p></div>)}
         </div>
       </section>
 
-      <section className="product-commercial product-reveal">
+      <section className="product-commercial product-reveal product-motion-section">
         <div><RouteLabel>Site-based annual plan</RouteLabel><h2>Add {product.eyebrow.replace("Klimori ", "")} where it creates operating value.</h2><p>Pricing follows active sites, connected systems, and implementation scope. Start with one product or combine the full Klimori operating layer.</p></div>
         <NavLink className="button button--primary" to="/pricing">Review product pricing <ArrowRight size={17} /></NavLink>
       </section>
 
-      <section className="product-next">
+      <section className="product-next product-motion-section">
         <span>Continue the operating story</span><NavLink to={product.next.path}><strong>{product.next.name}</strong><p>{product.next.copy}</p><ArrowRight size={22} /></NavLink>
       </section>
       <SiteFooter />

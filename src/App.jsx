@@ -7,12 +7,14 @@ import {
   Building2,
   CalendarDays,
   Check,
+  Clock3,
   CloudSun,
   Eye,
   Gauge,
   LineChart,
   Layers3,
   Quote,
+  Thermometer,
   UsersRound,
   Wrench,
   Zap,
@@ -141,26 +143,39 @@ function HomePage() {
     }
 
     const context = gsap.context(() => {
-      gsap.from(".hero-reference-image", { opacity: 0, duration: 0.85, ease: "power2.out", delay: 0.1 });
+      gsap.fromTo(".hero-copy > *", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.72, stagger: 0.1, ease: "power3.out", delay: 0.08 });
+      gsap.fromTo(".hero-floorplate", { autoAlpha: 0, scale: 0.97 }, { autoAlpha: 1, scale: 1, duration: 1.15, ease: "power3.out", delay: 0.12 });
+      gsap.fromTo(".hero-signal", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.62, stagger: 0.1, ease: "power3.out", delay: 0.42 });
 
       gsap.utils.toArray(".reveal").forEach((item) => {
         gsap.from(item, {
           y: 34,
           opacity: 0,
+          clipPath: "inset(0 0 18% 0)",
           duration: 0.85,
           ease: "power3.out",
-          scrollTrigger: { trigger: item, start: "top 84%" },
+          scrollTrigger: { trigger: item, start: "top 84%", once: true },
         });
       });
 
-      gsap.to(".hero-reference-image", {
-        yPercent: -4,
+      gsap.utils.toArray(".home-motion-section").forEach((section) => {
+        gsap.to(section, {
+          "--section-progress": 1,
+          duration: 1.05,
+          ease: "power3.out",
+          scrollTrigger: { trigger: section, start: "top 98%", once: true },
+        });
+      });
+
+      gsap.to(".hero-floorplate", {
+        yPercent: -3,
+        scale: 1.025,
         ease: "none",
         scrollTrigger: { trigger: ".hero", scrub: 0.7, start: "top top", end: "bottom top" },
       });
 
       gsap.fromTo(".hero-live-readout", { autoAlpha: 0, x: 14 }, { autoAlpha: 1, x: 0, duration: 0.7, delay: 0.45, ease: "power2.out" });
-      gsap.fromTo(".hero-model-node", { autoAlpha: 0, scale: 0.65 }, { autoAlpha: 1, scale: 1, duration: 0.55, stagger: 0.12, delay: 0.55, ease: "back.out(1.7)" });
+      gsap.fromTo(".hero-model-node", { autoAlpha: 0, scale: 0.65 }, { autoAlpha: 1, scale: 1, duration: 0.55, stagger: 0.12, delay: 0.64, ease: "back.out(1.7)" });
 
       gsap.utils.toArray(".spotlight-kicker").forEach((label) => {
         const text = label.querySelector("strong");
@@ -192,6 +207,9 @@ function HomePage() {
 
       gsap.fromTo(".proof-strip > *", { autoAlpha: 0, x: -22 }, { autoAlpha: 1, x: 0, duration: 0.7, stagger: 0.13, ease: "power3.out", scrollTrigger: { trigger: ".proof-strip", start: "top 84%", once: true } });
       gsap.fromTo("footer .footer-brand, footer .footer-nav > div, footer .footer-social", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.65, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: "footer", start: "top 88%", once: true } });
+      gsap.fromTo(".stat-item", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.78, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: ".stats-grid", start: "top 82%", once: true } });
+      gsap.fromTo(".testimonials-list", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 1.15, ease: "power3.inOut", scrollTrigger: { trigger: ".testimonials-list", start: "top 82%", once: true } });
+      gsap.fromTo(".demo-form > *", { autoAlpha: 0, x: 22 }, { autoAlpha: 1, x: 0, duration: 0.65, stagger: 0.09, ease: "power3.out", scrollTrigger: { trigger: ".demo-form", start: "top 82%", once: true } });
 
       gsap.utils.toArray(".stat-value").forEach((item) => {
         const target = Number(item.dataset.value);
@@ -341,27 +359,47 @@ function HomePage() {
       <SiteHeader />
 
       <section className="hero" id="top">
-        <h1 className="sr-only">Every building has a rhythm.</h1>
-        <img
-          className="hero-reference-image"
-          src="/assets/klimori-hero-reference.webp"
-          decoding="async"
-          fetchPriority="high"
-          alt="Klimori energy intelligence view showing a commercial building floorplate, its operating conditions, and the operations response loop"
-        />
-        <div className="hero-brand-mask" aria-hidden="true"></div>
-        <div className="hero-context" aria-hidden="true"><span>LIVE BUILDING MODEL</span><strong>WARSAW / SITE 04</strong></div>
-        <div className="hero-model-layer" aria-hidden="true">
-          <span className="hero-model-node hero-model-node--weather"></span>
-          <span className="hero-model-node hero-model-node--occupancy"></span>
-          <span className="hero-model-node hero-model-node--comfort"></span>
-          <span className="hero-model-node hero-model-node--energy"></span>
+        <div className="hero-copy">
+          <p className="eyebrow">Energy intelligence for commercial buildings</p>
+          <h1>Every building<br />has a rhythm.</h1>
+          <p className="hero-lede">Klimori keeps operations in step with the conditions outside and within.</p>
+          <div className="hero-actions">
+            <NavLink className="button button--primary" to="/request-demo">Request a demo <ArrowRight size={18} /></NavLink>
+          </div>
+          <p className="hero-detail"><span aria-hidden="true"></span>5 conditions, one operating picture</p>
         </div>
-        <div className="hero-live-readout" aria-hidden="true">
-          <span className="hero-live-readout__state"><i></i> Live operating model</span>
-          <span>5 signals reconciled</span>
+
+        <div className="hero-scene" aria-label="Live Klimori operating model for a commercial building in Warsaw">
+          <div className="hero-context"><span>LIVE BUILDING MODEL</span><strong>WARSAW / SITE 04</strong></div>
+          <img
+            className="hero-floorplate"
+            src="/assets/hero-floorplate.png"
+            decoding="async"
+            fetchPriority="high"
+            alt="Detailed commercial office floorplate with airflow paths connecting indoor and outdoor operating conditions"
+          />
+          <div className="hero-model-layer" aria-hidden="true">
+            <span className="hero-model-node hero-model-node--weather"></span>
+            <span className="hero-model-node hero-model-node--occupancy"></span>
+            <span className="hero-model-node hero-model-node--comfort"></span>
+            <span className="hero-model-node hero-model-node--energy"></span>
+          </div>
+          <div className="hero-signal hero-signal--weather"><CloudSun size={22} /><span><strong>15°C</strong><small>Partly cloudy · NW 12 km/h</small></span></div>
+          <div className="hero-signal hero-signal--time"><Clock3 size={22} /><span><strong>09:42</strong><small>Tuesday · 20 May 2025</small></span></div>
+          <div className="hero-signal hero-signal--occupancy"><UsersRound size={22} /><span><strong>62%</strong><small>Occupancy · ↑ 8% vs yesterday</small></span></div>
+          <div className="hero-signal hero-signal--co2"><Gauge size={22} /><span><strong>612 ppm</strong><small>CO₂ · Good</small></span></div>
+          <div className="hero-signal hero-signal--comfort"><Thermometer size={22} /><span><strong>21.4°C</strong><small>Comfort range · 20–22°C</small></span></div>
+          <div className="hero-signal hero-signal--energy"><Zap size={22} /><span><strong>68%</strong><small>Energy use vs baseline</small></span></div>
+          <div className="hero-live-readout" aria-hidden="true">
+            <span className="hero-live-readout__state"><i></i> Live operating model</span>
+            <span>5 signals reconciled</span>
+          </div>
         </div>
-        <NavLink className="hero-demo-hotspot" to="/request-demo" aria-label="Request a Klimori demo"><span className="sr-only">Request a demo</span></NavLink>
+
+        <div className="hero-condition-rail" aria-label="Conditions Klimori reconciles">
+          {signals.map(({ icon: Icon, label }, index) => <span key={label}><Icon size={17} /><i>0{index + 1}</i>{label}</span>)}
+          <strong>Continuously learning. Always in step.</strong>
+        </div>
       </section>
 
       <section className="story-chapter" aria-labelledby="story-heading">
@@ -526,13 +564,13 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="proof-strip" id="company">
+      <section className="proof-strip home-motion-section" id="company">
         <Gauge size={25} />
         <p>Not another dashboard. A decision layer designed around the conditions that shape every building day.</p>
         <a className="text-link" href="#demo">Meet Klimori <ArrowRight size={16} /></a>
       </section>
 
-      <section className="stats-section" id="evidence" aria-labelledby="stats-heading">
+      <section className="stats-section home-motion-section" id="evidence" aria-labelledby="stats-heading">
         <div className="stats-intro reveal">
           <SectionLabel>Operating evidence</SectionLabel>
           <h2 id="stats-heading">One day, measured from four useful angles.</h2>
@@ -551,7 +589,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="testimonials-section" id="perspectives" aria-labelledby="testimonials-heading">
+      <section className="testimonials-section home-motion-section" id="perspectives" aria-labelledby="testimonials-heading">
         <div className="testimonials-heading reveal">
           <SectionLabel>Operator perspectives</SectionLabel>
           <h2 id="testimonials-heading">Built around the questions teams already ask.</h2>
@@ -567,7 +605,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="pricing-section" id="pricing" aria-labelledby="pricing-heading">
+      <section className="pricing-section home-motion-section" id="pricing" aria-labelledby="pricing-heading">
         <div className="pricing-intro reveal">
           <SectionLabel>Commercial model</SectionLabel>
           <h2 id="pricing-heading">Start with the operating layer you need.</h2>
@@ -581,13 +619,13 @@ function HomePage() {
               <div><span className="pricing-plan__descriptor">{descriptor}</span><h3>{name}</h3></div>
               <p>{scope}</p>
               <span className="pricing-plan__fit">{fit}</span>
-              <a className="text-link" href={path}>Explore {name} <ArrowRight size={15} /></a>
+              <NavLink className="text-link" to={path}>Explore {name} <ArrowRight size={15} /></NavLink>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="demo-section" id="demo" aria-labelledby="demo-heading">
+      <section className="demo-section home-motion-section" id="demo" aria-labelledby="demo-heading">
         <div className="demo-intro reveal">
           <SectionLabel>Bring a portfolio into focus</SectionLabel>
           <h2 id="demo-heading">Start with the conditions you already have.</h2>
