@@ -11,7 +11,7 @@ function SiteFooter() {
       </div>
       <nav className="footer-nav" aria-label="Footer navigation">
         <div><span>Platform</span><NavLink to="/system">System</NavLink><NavLink to="/monitor">Monitor</NavLink><NavLink to="/optimize">Optimize</NavLink><NavLink to="/peak">Peak</NavLink></div>
-        <div><span>Company</span><NavLink to="/portfolios">Portfolios</NavLink><NavLink to="/company">About Klimori</NavLink><NavLink to="/pricing">Pricing</NavLink><NavLink to="/sign-in">Sign in</NavLink><NavLink to="/request-demo">Request a demo <ArrowUpRight size={14} /></NavLink></div>
+        <div><span>Company</span><NavLink to="/portfolios">Portfolios</NavLink><NavLink to="/company">About Klimori</NavLink><NavLink to="/news/klimori-announces-600k-funding-from-tiphub">News</NavLink><NavLink to="/pricing">Pricing</NavLink><NavLink to="/sign-in">Sign in</NavLink><NavLink to="/request-demo">Request a demo <ArrowUpRight size={14} /></NavLink></div>
       </nav>
       <nav className="footer-social" aria-label="Klimori social media">
         <a href="https://www.linkedin.com/company/klimori/" target="_blank" rel="noreferrer" aria-label="Klimori on LinkedIn" title="LinkedIn"><FaLinkedinIn aria-hidden="true" /></a>

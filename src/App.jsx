@@ -29,6 +29,7 @@ const NarrativePage = lazy(() => import("./pages/NarrativePage.jsx").then((modul
 const PricingPage = lazy(() => import("./pages/PricingPage.jsx").then((module) => ({ default: module.PricingPage })));
 const RequestDemoPage = lazy(() => import("./pages/RequestDemoPage.jsx").then((module) => ({ default: module.RequestDemoPage })));
 const LegalPage = lazy(() => import("./pages/LegalPage.jsx").then((module) => ({ default: module.LegalPage })));
+const FundingAnnouncementPage = lazy(() => import("./pages/FundingAnnouncementPage.jsx").then((module) => ({ default: module.FundingAnnouncementPage })));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -354,9 +355,15 @@ function HomePage() {
   }
 
   return (
-    <main>
+    <main className="home-page">
       <EntrySequence />
       <SiteHeader />
+
+      <aside className="funding-strip" aria-label="Klimori funding announcement">
+        <span>Company news</span>
+        <p><time dateTime="2026-02-05">05 FEB 2026</time><strong>Klimori announces $600K in funding from TipHub.</strong></p>
+        <NavLink to="/news/klimori-announces-600k-funding-from-tiphub">Read the announcement <ArrowRight size={15} /></NavLink>
+      </aside>
 
       <section className="hero" id="top">
         <div className="hero-copy">
@@ -687,6 +694,52 @@ function ScrollToTop() {
   return null;
 }
 
+function SiteMetadata() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname === "/news/klimori-announces-600k-funding-from-tiphub") return;
+
+    const description = "Klimori connects the conditions that shape commercial building operations.";
+    const title = "Klimori | Energy intelligence for commercial buildings";
+    const url = `https://www.klimori.com${pathname === "/" ? "" : pathname}`;
+    const image = "https://www.klimori.com/assets/hero-floorplate.png";
+    const entries = [
+      ['meta[name="description"]', "name", "description", description],
+      ['meta[property="og:title"]', "property", "og:title", title],
+      ['meta[property="og:description"]', "property", "og:description", description],
+      ['meta[property="og:type"]', "property", "og:type", "website"],
+      ['meta[property="og:url"]', "property", "og:url", url],
+      ['meta[property="og:image"]', "property", "og:image", image],
+      ['meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image"],
+      ['meta[name="twitter:title"]', "name", "twitter:title", title],
+      ['meta[name="twitter:description"]', "name", "twitter:description", description],
+      ['meta[name="twitter:image"]', "name", "twitter:image", image],
+    ];
+
+    entries.forEach(([selector, attribute, key, content]) => {
+      let element = document.head.querySelector(selector);
+      if (!element) {
+        element = document.createElement("meta");
+        document.head.appendChild(element);
+      }
+      element.setAttribute(attribute, key);
+      element.setAttribute("content", content);
+    });
+
+    document.head.querySelector('meta[property="article:published_time"]')?.remove();
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = url;
+  }, [pathname]);
+
+  return null;
+}
+
 function RouteLoader() {
   return <div className="route-loader" role="status"><span></span>Loading Klimori</div>;
 }
@@ -695,6 +748,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SiteMetadata />
       <Suspense fallback={<RouteLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -708,6 +762,7 @@ function App() {
           <Route path="/request-demo" element={<RequestDemoPage />} />
           <Route path="/legal" element={<LegalPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/news/klimori-announces-600k-funding-from-tiphub" element={<FundingAnnouncementPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

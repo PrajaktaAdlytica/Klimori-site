@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/news/klimori-announces-600k-funding-from-tiphub",
+      "destination": "/news/klimori-announces-600k-funding-from-tiphub/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

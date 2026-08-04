@@ -44,6 +44,7 @@ function SiteHeader() {
         </details>
         <NavLink to="/portfolios" onClick={closeMenu}>Portfolios</NavLink>
         <NavLink to="/company" onClick={closeMenu}>Company</NavLink>
+        <NavLink to="/news/klimori-announces-600k-funding-from-tiphub" onClick={closeMenu}>News</NavLink>
         <NavLink to="/pricing" onClick={closeMenu}>Pricing</NavLink>
         <NavLink className="nav-sign-in" to="/sign-in" onClick={closeMenu}>Sign in</NavLink>
         <NavLink className="nav-demo" to="/request-demo" onClick={closeMenu}>Request a demo <span aria-hidden="true">→</span></NavLink>
