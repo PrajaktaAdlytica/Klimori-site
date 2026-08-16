@@ -106,7 +106,7 @@ const pages = {
     ],
     statementLabel: "Our product position",
     statement: "Quiet software for consequential operating decisions.",
-    statementMeta: "KLIMORI / WARSAW / EU",
+    statementMeta: "KLIMORI / FLORENCE / EU",
     nextLabel: "Understand the operating layer",
     nextName: "The Klimori system",
     nextCopy: "See how five building conditions become one reviewable picture.",
