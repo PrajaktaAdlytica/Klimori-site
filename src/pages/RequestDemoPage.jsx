@@ -49,7 +49,7 @@ function RequestDemoPage() {
           <RouteLabel>Portfolio review</RouteLabel>
           <h2 id="demo-form-heading">Tell us where the operating picture breaks apart.</h2>
           <p>We will use this information only to respond to the request and prepare the session.</p>
-          <div><span>REGION</span><strong>Poland / European Union</strong></div>
+          <div><span>REGION</span><strong>Italy / European Union</strong></div>
           <div><span>RESPONSE</span><strong>Business-day follow-up</strong></div>
           <div><span>FORMAT</span><strong>Remote working session</strong></div>
         </div>

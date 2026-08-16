@@ -22,15 +22,15 @@ function LegalPage() {
           <h1 className="route-motion-item" id="legal-heading">Clear terms for a clear operating relationship.</h1>
           <p className="route-motion-item">Privacy, cookies and website terms for visitors, demo requesters and prospective Klimori customers in the European Union.</p>
         </div>
-        <dl className="route-motion-item"><div><dt>Last updated</dt><dd>16 July 2026</dd></div><div><dt>Region</dt><dd>Poland / European Union</dd></div><div><dt>Contact</dt><dd><a href="mailto:privacy@klimori.com">privacy@klimori.com</a></dd></div></dl>
+        <dl className="route-motion-item"><div><dt>Last updated</dt><dd>16 July 2026</dd></div><div><dt>Region</dt><dd>Italy / European Union</dd></div><div><dt>Contact</dt><dd><a href="mailto:privacy@klimori.com">privacy@klimori.com</a></dd></div></dl>
       </section>
 
       <nav className="legal-index route-motion-section" aria-label="Legal page sections"><a className="route-motion-item" href="#privacy"><ShieldCheck size={18} />Privacy</a><a className="route-motion-item" href="#cookies"><Cookie size={18} />Cookies</a><a className="route-motion-item" href="#terms"><FileText size={18} />Website terms</a></nav>
 
       <section className="legal-section route-motion-section" id="privacy" aria-labelledby="privacy-heading">
-        <div className="legal-section__intro route-motion-heading"><RouteLabel>Privacy information</RouteLabel><h2 id="privacy-heading">How website and enquiry data is handled.</h2><p>This implementation is a structured policy draft. Klimori's registered legal entity name, address and any appointed data-protection contact must be confirmed before public launch.</p></div>
+        <div className="legal-section__intro route-motion-heading"><RouteLabel>Privacy information</RouteLabel><h2 id="privacy-heading">How website and enquiry data is handled.</h2><p>This implementation is a structured policy draft. Klimori's registered legal entity name and any appointed data-protection contact must be confirmed before public launch.</p></div>
         <div className="legal-content">
-          <LegalBlock number="01" title="Controller and contact"><p>Klimori, Poland, is responsible for personal data processed through this website. Privacy questions and rights requests can be sent to <a href="mailto:privacy@klimori.com">privacy@klimori.com</a>. Registered entity and address details will be inserted before publication.</p></LegalBlock>
+          <LegalBlock number="01" title="Controller and contact"><p>Klimori, Piazza Mountain, 85, Florence, TOS 50129, Italy, is responsible for personal data processed through this website. Privacy questions and rights requests can be sent to <a href="mailto:privacy@klimori.com">privacy@klimori.com</a> or by phone at <a href="tel:+390946076963">+39 094 607 6963</a>.</p></LegalBlock>
           <LegalBlock number="02" title="Data we collect"><p>We may collect the business contact and enquiry information you provide, including name, work email, organisation, role, portfolio size, product interest and message. Technical logs may include IP address, browser, device, requested pages, timestamps and security events.</p></LegalBlock>
           <LegalBlock number="03" title="Purposes and lawful bases"><p>We use enquiry data to respond, arrange a demonstration and take requested pre-contractual steps. We use necessary technical data to operate and secure the website based on our legitimate interest in providing a reliable service. Non-essential analytics or marketing technologies will be used only after appropriate consent.</p></LegalBlock>
           <LegalBlock number="04" title="Recipients and transfers"><p>Data may be processed by vetted providers supporting hosting, communications, CRM, analytics or professional advice. Processor arrangements should be documented. Where a provider transfers data outside the EEA, Klimori will apply an approved transfer mechanism and appropriate safeguards.</p></LegalBlock>
@@ -68,7 +68,7 @@ function LegalPage() {
           <a className="route-motion-item" href="https://europa.eu/youreurope/business/dealing-with-customers/data-protection/data-protection-gdpr/index_en.htm" target="_blank" rel="noreferrer"><span>European Commission / GDPR for businesses</span><ExternalLink size={16} /></a>
           <a className="route-motion-item" href="https://www.edpb.europa.eu/topics/key-gdpr-concepts/data-subject-rights_en" target="_blank" rel="noreferrer"><span>European Data Protection Board / Data subject rights</span><ExternalLink size={16} /></a>
         </div>
-        <p className="route-motion-item"><Check size={16} /> Final legal text should be reviewed by qualified Polish/EU counsel before publication.</p>
+        <p className="route-motion-item"><Check size={16} /> Final legal text should be reviewed by qualified Italy/EU counsel before publication.</p>
       </section>
       <SiteFooter />
     </main>

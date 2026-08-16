@@ -17,7 +17,7 @@ function SiteFooter() {
         <a href="https://www.linkedin.com/company/klimori/" target="_blank" rel="noreferrer" aria-label="Klimori on LinkedIn" title="LinkedIn"><FaLinkedinIn aria-hidden="true" /></a>
         <a href="https://www.youtube.com/@klimori" target="_blank" rel="noreferrer" aria-label="Klimori on YouTube" title="YouTube"><FaYoutube aria-hidden="true" /></a>
       </nav>
-      <div className="footer-legal"><span>© 2026 Klimori. Poland / European Union.</span><nav aria-label="Legal navigation"><NavLink to="/legal#privacy">Privacy</NavLink><NavLink to="/legal#cookies">Cookies</NavLink><NavLink to="/legal#terms">Terms</NavLink></nav></div>
+      <div className="footer-legal"><span>© 2026 Klimori. Piazza Mountain, 85, Florence, TOS 50129, Italy. Phone: +39 094 607 6963.</span><nav aria-label="Legal navigation"><NavLink to="/legal#privacy">Privacy</NavLink><NavLink to="/legal#cookies">Cookies</NavLink><NavLink to="/legal#terms">Terms</NavLink></nav></div>
     </footer>
   );
 }
