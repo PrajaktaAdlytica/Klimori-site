@@ -146,7 +146,7 @@ function EntrySequence() {
     >
       <div className="entry-sequence__rail">
         <img className="entry-rail__brand" src="/assets/klimori-lockup-reference.webp" alt="Klimori" decoding="async" />
-        <span className="entry-rail__meta">Live operating model / Warsaw 04</span>
+        <span className="entry-rail__meta">Live operating model / USA 04</span>
         <button className="entry-skip" type="button" onClick={skipEntry} autoFocus>
           Skip intro <ArrowRight size={15} aria-hidden="true" />
         </button>

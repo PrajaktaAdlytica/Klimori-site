@@ -25,7 +25,7 @@ const productPages = {
     lede: "Monitor compares what a building was asked to do with what actually unfolded, then keeps the conditions behind every exception in view.",
     image: "/assets/optimize-reference.webp",
     imageAlt: "Operational evidence view comparing schedules, occupancy, weather, tariffs, and maintenance conditions",
-    imageLabel: "Operational ledger / Warsaw site 04",
+    imageLabel: "Operational ledger / USA site 04",
     metrics: [["02h 30m", "early runtime surfaced"], ["5", "conditions compared"], ["24", "sites in one baseline"]],
     chapters: [
       ["01", "Trace the operating day", "See schedules, runtime, occupancy, weather, tariffs, and asset conditions on the same timeline."],
@@ -33,7 +33,7 @@ const productPages = {
       ["03", "Compare sites without flattening them", "A common portfolio baseline reveals patterns while retaining each building's operating context."],
     ],
     finding: "AHU-3 began 2 hours and 30 minutes before observed occupancy.",
-    findingMeta: "Illustrative finding / Tuesday 08:15",
+    findingMeta: "Operating finding / Tuesday 08:15",
     outcome: "The team sees the added runtime, the conditions around it, and the next useful question in one reviewable record.",
     useCases: ["Runtime exceptions", "Schedule drift", "Comfort investigation", "Portfolio baselining"],
     next: { name: "Optimize", path: "/optimize", copy: "Turn a reviewed finding into a controlled adjustment." },
@@ -53,7 +53,7 @@ const productPages = {
       ["03", "Keep the operating record", "Applied changes, reviewers, conditions of use, and measured outcomes stay attached for future learning."],
     ],
     finding: "Move the AHU-3 start from 05:30 to 07:30 while preserving the agreed comfort window.",
-    findingMeta: "Illustrative adjustment / Review ready",
+    findingMeta: "Reviewed adjustment / Review ready",
     outcome: "The intervention becomes a controlled operating decision rather than another isolated setpoint change.",
     useCases: ["Schedule optimization", "Preconditioning review", "Setpoint governance", "Change documentation"],
     next: { name: "Peak", path: "/peak", copy: "Prepare a coordinated response before demand and cost rise." },
@@ -73,7 +73,7 @@ const productPages = {
       ["03", "Coordinate the portfolio", "Active site risks and prepared responses share one operating language across local and central teams."],
     ],
     finding: "Review the prepared response at 15:00, one hour before the high-tariff window opens.",
-    findingMeta: "Illustrative peak event / Forecast",
+    findingMeta: "Peak forecast / Forecast",
     outcome: "The portfolio enters the cost window with an agreed response and a record of what actually happened.",
     useCases: ["Tariff events", "Demand preparation", "Portfolio coordination", "Outcome comparison"],
     next: { name: "Monitor", path: "/monitor", copy: "Return each outcome to the operating trace and keep learning." },
@@ -124,11 +124,11 @@ function ProductPage({ productKey }) {
           <RouteLabel>{product.eyebrow}</RouteLabel>
           <h1 id={`${product.slug}-heading`}>{product.title}</h1>
           <p>{product.lede}</p>
-          <div className="product-hero__actions"><NavLink className="button button--primary" to="/request-demo">Request a demo <ArrowRight size={17} /></NavLink><a className="text-link" href="#how-it-works">See how it works <ArrowRight size={15} /></a></div>
+          <div className="product-hero__actions"><NavLink className="button button--primary" to="/request-access">Request access <ArrowRight size={17} /></NavLink><a className="text-link" href="#how-it-works">See how it works <ArrowRight size={15} /></a></div>
         </div>
         <figure className="product-hero__media">
           <img src={product.image} alt={product.imageAlt} decoding="async" fetchPriority="high" />
-          <figcaption><span>{product.imageLabel}</span><strong>Illustrative operating example</strong></figcaption>
+          <figcaption><span>{product.imageLabel}</span><strong>Operating context</strong></figcaption>
         </figure>
       </section>
 
@@ -145,7 +145,7 @@ function ProductPage({ productKey }) {
 
       <section className="product-finding product-reveal product-motion-section" aria-labelledby={`${product.slug}-finding-heading`}>
         <div><RouteLabel>{product.findingMeta}</RouteLabel><h2 id={`${product.slug}-finding-heading`}>{product.finding}</h2></div>
-        <aside><Gauge size={24} aria-hidden="true" /><span>Operating outcome</span><p>{product.outcome}</p><NavLink className="text-link" to="/request-demo">Review this scenario <ArrowRight size={15} /></NavLink></aside>
+        <aside><Gauge size={24} aria-hidden="true" /><span>Operating outcome</span><p>{product.outcome}</p><NavLink className="text-link" to="/request-access">Review this scenario <ArrowRight size={15} /></NavLink></aside>
       </section>
 
       <section className="product-use-cases product-reveal product-motion-section" aria-labelledby={`${product.slug}-use-heading`}>

@@ -14,7 +14,7 @@ const pages = {
     lede: "Klimori connects the conditions that shape a building day, so teams can move from scattered signals to a decision they can review and explain.",
     image: "/assets/evidence-reference.webp",
     imageAlt: "Commercial building conditions converging into one Klimori operating decision",
-    imageLabel: "Signal relationship / Warsaw site 04",
+    imageLabel: "Signal relationship / USA site 04",
     metrics: [["5", "operating conditions"], ["1", "shared decision path"], ["24/7", "context retained"]],
     sectionLabel: "How the system thinks",
     sectionHeading: "The relationship is the useful signal.",
@@ -82,11 +82,11 @@ const pages = {
     title: "Company | Klimori",
     label: "About Klimori",
     heading: "Built for the people who keep buildings working.",
-    lede: "Klimori is an Italy-based, EU-focused product company creating a clearer operating layer for commercial buildings and the teams responsible for them.",
+    lede: "Klimori is a USA-based, global product company creating a clearer operating layer for commercial buildings and the teams responsible for them.",
     image: "/assets/klimori-hero-reference.webp",
     imageAlt: "Klimori commercial building operating model with connected internal and external conditions",
-    imageLabel: "Italy / European Union",
-    metrics: [["IT / EU", "product base"], ["B2B", "commercial building focus"], ["1", "operator-led mission"]],
+    imageLabel: "USA / Global",
+    metrics: [["US / Global", "product base"], ["B2B", "commercial building focus"], ["1", "operator-led mission"]],
     sectionLabel: "Why Klimori exists",
     sectionHeading: "Buildings already produce data. Teams still need clarity.",
     sectionCopy: "The problem is not the absence of dashboards. It is the distance between separate data, daily operating choices and accountable outcomes.",
@@ -106,7 +106,7 @@ const pages = {
     ],
     statementLabel: "Our product position",
     statement: "Quiet software for consequential operating decisions.",
-    statementMeta: "KLIMORI / FLORENCE / EU",
+    statementMeta: "KLIMORI / USA / GLOBAL",
     nextLabel: "Understand the operating layer",
     nextName: "The Klimori system",
     nextCopy: "See how five building conditions become one reviewable picture.",
@@ -126,7 +126,7 @@ function NarrativePage({ pageKey }) {
           <div className="route-motion-item"><RouteLabel>{page.label}</RouteLabel></div>
           <h1 className="route-motion-item" id={`${page.slug}-heading`}>{page.heading}</h1>
           <p className="route-motion-item">{page.lede}</p>
-          <div className="route-hero__actions route-motion-item"><NavLink className="button button--primary" to="/request-demo">Request a demo <ArrowRight size={17} /></NavLink><a className="text-link" href="#story">Follow the story <ArrowRight size={15} /></a></div>
+          <div className="route-hero__actions route-motion-item"><NavLink className="button button--primary" to="/request-access">Request access <ArrowRight size={17} /></NavLink><a className="text-link" href="#story">Follow the story <ArrowRight size={15} /></a></div>
         </div>
         <figure className="route-hero__media">
           <img src={page.image} alt={page.imageAlt} />

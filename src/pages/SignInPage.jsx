@@ -21,7 +21,7 @@ function SignInPage() {
         <aside className="auth-context route-motion-item">
           <div className="auth-context__top"><Gauge size={25} aria-hidden="true" /><span>KLIMORI WORKSPACE</span></div>
           <div><p>Operating context stays with the decision.</p><h2>Return to the buildings and portfolios your team is reviewing.</h2></div>
-          <dl><div><dt>Workspace</dt><dd>Secure organisation access</dd></div><div><dt>Region</dt><dd>European Union</dd></div><div><dt>Status</dt><dd><i></i>Preview environment</dd></div></dl>
+          <dl><div><dt>Workspace</dt><dd>Secure organisation access</dd></div><div><dt>Region</dt><dd>USA / Global</dd></div><div><dt>Status</dt><dd><i></i>Secure environment</dd></div></dl>
         </aside>
         <div className="auth-form-wrap route-motion-item">
           <NavLink className="auth-back" to="/"><ArrowLeft size={15} /> Back to Klimori</NavLink>
@@ -34,10 +34,10 @@ function SignInPage() {
             <button className="auth-sso" type="button" onClick={() => setStatus("Microsoft sign-in is available in the live product.")}>Continue with Microsoft</button>
             {status && <p className="auth-status" role="status"><Check size={16} />{status}</p>}
           </form>
-          <p className="auth-help">Need workspace access? <NavLink to="/request-demo">Request a Klimori demo</NavLink></p>
+          <p className="auth-help">Need workspace access? <NavLink to="/request-access">Request Klimori access</NavLink></p>
         </div>
       </section>
-      <footer className="auth-footer"><span>© 2026 Klimori</span><span>EU data region</span><NavLink to="/legal#privacy">Privacy</NavLink></footer>
+      <footer className="auth-footer"><span>© 2026 Klimori</span><span>USA data region</span><NavLink to="/legal#privacy">Privacy</NavLink></footer>
     </main>
   );
 }

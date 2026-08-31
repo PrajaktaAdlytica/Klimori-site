@@ -152,7 +152,7 @@ function FundingAnnouncementPage() {
         <section className="funding-next funding-motion-section">
           <div className="funding-motion-item"><CalendarDays size={22} aria-hidden="true" /><span>Continue with Klimori</span></div>
           <div className="funding-next__copy funding-motion-item"><h2>See how five building conditions become one reviewable picture.</h2><p>Explore the product story or bring a building day into focus with the Klimori team.</p></div>
-          <div className="funding-next__actions funding-motion-item"><NavLink className="button button--primary" to="/request-demo">Request a demo <ArrowRight size={17} /></NavLink><NavLink className="text-link" to="/system">Explore the system <ArrowRight size={15} /></NavLink></div>
+          <div className="funding-next__actions funding-motion-item"><NavLink className="button button--primary" to="/request-access">Request access <ArrowRight size={17} /></NavLink><NavLink className="text-link" to="/system">Explore the system <ArrowRight size={15} /></NavLink></div>
         </section>
       </article>
 

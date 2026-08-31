@@ -39,7 +39,7 @@ function PricingPage() {
           <div className="route-motion-item"><RouteLabel>Commercial model</RouteLabel></div>
           <h1 className="route-motion-item" id="pricing-route-heading">Price the operating layer, not every person using it.</h1>
           <p className="route-motion-item">Klimori is scoped annually by active site, selected products, connected systems and implementation requirements.</p>
-          <div className="route-motion-item"><NavLink className="button button--primary" to="/request-demo">Request pricing <ArrowRight size={17} /></NavLink></div>
+          <div className="route-motion-item"><NavLink className="button button--primary" to="/request-access">Request pricing <ArrowRight size={17} /></NavLink></div>
         </div>
         <div className="pricing-route-hero__basis route-motion-item">
           <Building2 size={24} aria-hidden="true" />
@@ -93,7 +93,7 @@ function PricingPage() {
 
       <section className="pricing-route-cta route-motion-section">
         <div className="route-motion-heading"><RouteLabel>Build the right starting scope</RouteLabel><h2>Bring the portfolio, systems and operating question.</h2><p>Klimori will return a clear product and implementation proposal.</p></div>
-        <NavLink className="button button--primary route-motion-item" to="/request-demo">Request pricing <ArrowRight size={17} /></NavLink>
+        <NavLink className="button button--primary route-motion-item" to="/request-access">Request pricing <ArrowRight size={17} /></NavLink>
       </section>
       <SiteFooter />
     </main>

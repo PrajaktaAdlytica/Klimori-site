@@ -8,7 +8,7 @@ import { useNarrativeMotion } from "../hooks/useNarrativeMotion.js";
 
 function RequestDemoPage() {
   const [submitted, setSubmitted] = useState(false);
-  const rootRef = useNarrativeMotion("Request a demo | Klimori");
+  const rootRef = useNarrativeMotion("Request access | Klimori");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -18,13 +18,13 @@ function RequestDemoPage() {
   return (
     <main ref={rootRef} className="demo-page">
       <SiteHeader />
-      <section className="demo-route-hero route-motion-section route-hero" aria-labelledby="demo-route-heading">
+      <section className="demo-route-hero route-motion-section route-hero" aria-labelledby="access-route-heading">
         <div className="demo-route-hero__copy">
-          <div className="route-motion-item"><RouteLabel>Request a Klimori demo</RouteLabel></div>
-          <h1 className="route-motion-item" id="demo-route-heading">Bring one building day into focus.</h1>
+          <div className="route-motion-item"><RouteLabel>Request Klimori access</RouteLabel></div>
+          <h1 className="route-motion-item" id="access-route-heading">Bring one building day into focus.</h1>
           <p className="route-motion-item">Share the portfolio, systems and operating question. We will shape the session around the conditions your team already works with.</p>
         </div>
-        <div className="demo-route-hero__trace route-motion-item" aria-label="Klimori demo review sequence">
+        <div className="demo-route-hero__trace route-motion-item" aria-label="Klimori review sequence">
           <div><span>01</span><Building2 size={20} /><strong>Portfolio</strong><p>Sites, types and operating priorities</p></div>
           <i aria-hidden="true"></i>
           <div><span>02</span><DatabaseZap size={20} /><strong>Systems</strong><p>Available data and connection scope</p></div>
@@ -49,7 +49,7 @@ function RequestDemoPage() {
           <RouteLabel>Portfolio review</RouteLabel>
           <h2 id="demo-form-heading">Tell us where the operating picture breaks apart.</h2>
           <p>We will use this information only to respond to the request and prepare the session.</p>
-          <div><span>REGION</span><strong>Italy / European Union</strong></div>
+          <div><span>REGION</span><strong>USA / Global</strong></div>
           <div><span>RESPONSE</span><strong>Business-day follow-up</strong></div>
           <div><span>FORMAT</span><strong>Remote working session</strong></div>
         </div>
@@ -65,7 +65,7 @@ function RequestDemoPage() {
           <label className="demo-message route-motion-item" htmlFor="demo-question">Operating question<textarea id="demo-question" name="question" rows="4" placeholder="For example: our HVAC schedules do not follow actual occupancy across 18 offices." required></textarea></label>
           <label className="demo-consent route-motion-item"><input type="checkbox" required /><span>I agree that Klimori may use these details to respond to this request. See the <NavLink to="/legal#privacy">privacy information</NavLink>.</span></label>
           <button className="button button--primary route-motion-item" type="submit">Request the session <ArrowRight size={17} /></button>
-          {submitted && <p className="demo-success" role="status"><Check size={17} /> Preview complete. No information was sent.</p>}
+          {submitted && <p className="demo-success" role="status"><Check size={17} /> Submission complete. No information was sent.</p>}
         </form>
       </section>
 

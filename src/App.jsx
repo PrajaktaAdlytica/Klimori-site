@@ -77,7 +77,7 @@ const testimonials = [
 
 const operatingStats = [
   { value: 5, suffix: "", label: "Connected conditions", detail: "Schedule, occupancy, weather, tariff, and maintenance in one operating picture." },
-  { value: 2.5, suffix: "h", decimals: 1, label: "Early runtime surfaced", detail: "An illustrative site trace identified before observed occupancy." },
+  { value: 2.5, suffix: "h", decimals: 1, label: "Early runtime surfaced", detail: "A site trace surfaced before observed occupancy." },
   { value: 24, suffix: "", label: "Sites compared", detail: "One portfolio baseline with each building's local context retained." },
   { value: 60, suffix: "m", label: "Peak review window", detail: "Time to prepare a response before the example tariff event begins." },
 ];
@@ -371,13 +371,13 @@ function HomePage() {
           <h1>Every building<br />has a rhythm.</h1>
           <p className="hero-lede">Klimori keeps operations in step with the conditions outside and within.</p>
           <div className="hero-actions">
-            <NavLink className="button button--primary" to="/request-demo">Request a demo <ArrowRight size={18} /></NavLink>
+            <NavLink className="button button--primary" to="/request-access">Request access <ArrowRight size={18} /></NavLink>
           </div>
           <p className="hero-detail"><span aria-hidden="true"></span>5 conditions, one operating picture</p>
         </div>
 
-        <div className="hero-scene" aria-label="Live Klimori operating model for a commercial building in Warsaw">
-          <div className="hero-context"><span>LIVE BUILDING MODEL</span><strong>WARSAW / SITE 04</strong></div>
+        <div className="hero-scene" aria-label="Live Klimori operating model for a commercial building in the USA">
+          <div className="hero-context"><span>LIVE BUILDING MODEL</span><strong>USA / SITE 04</strong></div>
           <img
             className="hero-floorplate"
             src="/assets/hero-floorplate.png"
@@ -481,7 +481,7 @@ function HomePage() {
             <i className="monitor-exception" aria-hidden="true"></i>
           </div>
           <aside className="monitor-finding" aria-label="Klimori Monitor finding">
-            <div><span>MONITOR FINDING</span><span>WARSAW / SITE 04</span></div>
+            <div><span>MONITOR FINDING</span><span>USA / SITE 04</span></div>
             <h3>The building has added runtime without an operating decision.</h3>
             <a className="text-link" href="#optimize">Continue to Optimize <ArrowRight size={16} /></a>
           </aside>
@@ -498,7 +498,7 @@ function HomePage() {
             <p>Optimize keeps the conditions, constraints, and intended result together, so an operational change can be reviewed before it is applied.</p>
           </div>
           <div className="optimize-board" aria-label="Klimori Optimize evaluates occupancy, weather, schedule, tariff, and maintenance before a schedule adjustment">
-            <div className="optimize-board__heading"><span>INPUT CONDITIONS</span><span>WARSAW / SITE 04 / TUESDAY</span></div>
+            <div className="optimize-board__heading"><span>INPUT CONDITIONS</span><span>USA / SITE 04 / TUESDAY</span></div>
             {optimizationConditions.map(({ icon: Icon, label, detail, tone }, index) => (
               <div className={`optimize-condition optimize-condition--${tone}`} key={label}>
                 <span>0{index + 1}</span><Icon size={19} aria-hidden="true" /><div><strong>{label}</strong><p>{detail}</p></div><i className="optimize-connector" aria-hidden="true"></i>
@@ -554,10 +554,10 @@ function HomePage() {
           <div className="portfolio-table" aria-label="Example portfolio operating overview">
             <div className="portfolio-table__heading"><span><LineChart size={19} />24 active sites</span><span>NORMALISED OPERATING WINDOW</span><span>CONDITION</span></div>
             {[
-              ["Warsaw", "08:00–18:00", "Aligned", "teal", "23%", "63%"],
-              ["Gdansk", "07:30–17:30", "Review occupancy", "green", "19%", "61%"],
-              ["Wroclaw", "08:00–19:00", "Tariff at 16:00", "amber", "25%", "69%"],
-              ["Poznan", "09:00–18:00", "Maintenance due", "coral", "28%", "59%"],
+              ["Chicago", "08:00–18:00", "Aligned", "teal", "23%", "63%"],
+              ["Austin", "07:30–17:30", "Review occupancy", "green", "19%", "61%"],
+              ["Denver", "08:00–19:00", "Tariff at 16:00", "amber", "25%", "69%"],
+              ["Boston", "09:00–18:00", "Maintenance due", "coral", "28%", "59%"],
             ].map(([city, hours, status, tone, start, width]) => (
               <div className={`portfolio-site portfolio-site--${tone}`} key={city}>
                 <span className="portfolio-site__name">{city}</span><div className="portfolio-track"><i className="portfolio-window" style={{ "--start": start, "--width": width }}></i></div><div className="portfolio-status"><i></i><span>{status}</span><strong>{hours}</strong></div>
@@ -574,14 +574,14 @@ function HomePage() {
       <section className="proof-strip home-motion-section" id="company">
         <Gauge size={25} />
         <p>Not another dashboard. A decision layer designed around the conditions that shape every building day.</p>
-        <a className="text-link" href="#demo">Meet Klimori <ArrowRight size={16} /></a>
+        <a className="text-link" href="#access">Meet Klimori <ArrowRight size={16} /></a>
       </section>
 
       <section className="stats-section home-motion-section" id="evidence" aria-labelledby="stats-heading">
         <div className="stats-intro reveal">
           <SectionLabel>Operating evidence</SectionLabel>
           <h2 id="stats-heading">One day, measured from four useful angles.</h2>
-          <p>These figures come from the operating story shown above. They demonstrate how Klimori structures evidence; they are not customer savings claims.</p>
+          <p>These figures come from the operating story shown above and show how Klimori structures evidence.</p>
         </div>
         <div className="stats-grid">
           {operatingStats.map(({ value, suffix, decimals, label, detail }, index) => (
@@ -632,18 +632,18 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="demo-section home-motion-section" id="demo" aria-labelledby="demo-heading">
+      <section className="demo-section home-motion-section" id="access" aria-labelledby="access-heading">
         <div className="demo-intro reveal">
           <SectionLabel>Bring a portfolio into focus</SectionLabel>
-          <h2 id="demo-heading">Start with the conditions you already have.</h2>
+          <h2 id="access-heading">Start with the conditions you already have.</h2>
           <p>Tell us a little about your portfolio and we will show you how Klimori could fit your operating model.</p>
         </div>
         <form className="demo-form reveal" onSubmit={handleSubmit}>
           <label htmlFor="name">Name<input id="name" required name="name" placeholder="Your name" /></label>
           <label htmlFor="email">Work email<input id="email" required type="email" name="email" placeholder="name@company.com" /></label>
           <label htmlFor="portfolio">Portfolio size<select id="portfolio" name="portfolio"><option>1–5 sites</option><option>6–25 sites</option><option>26–100 sites</option><option>100+ sites</option></select></label>
-          <button className="button button--primary" type="submit">Request a demo <ArrowRight size={18} /></button>
-          {submitted && <p className="form-success" role="status"><Check size={17} /> Preview complete. No information was sent.</p>}
+          <button className="button button--primary" type="submit">Request access <ArrowRight size={18} /></button>
+          {submitted && <p className="form-success" role="status"><Check size={17} /> Submission complete. No information was sent.</p>}
         </form>
       </section>
 
@@ -759,7 +759,7 @@ function App() {
           <Route path="/portfolios" element={<NarrativePage pageKey="portfolios" />} />
           <Route path="/company" element={<NarrativePage pageKey="company" />} />
           <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/request-demo" element={<RequestDemoPage />} />
+          <Route path="/request-access" element={<RequestDemoPage />} />
           <Route path="/legal" element={<LegalPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/news/klimori-announces-600k-funding-from-tiphub" element={<FundingAnnouncementPage />} />
